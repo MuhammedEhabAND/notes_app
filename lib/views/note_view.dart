@@ -1,46 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constants.dart';
+import 'package:notes_app/models/note_model.dart';
 
+import '../cubits/notes_cubit/notes_cubit.dart';
 import '../widgets/add_note_bottom_sheet.dart';
 import '../widgets/note_item.dart';
 import '../widgets/notes_item_list.dart';
 import '../widgets/notes_view_body.dart';
 
-class NoteView extends StatelessWidget {
+class NoteView extends StatefulWidget {
   const NoteView({Key? key}): super(key: key);
 
   @override
+  State<NoteView> createState() => _NoteViewState();
+}
+
+class _NoteViewState extends State<NoteView> {
+
+  String searchText = '';
+  bool isSearching = false;
+
+  @override
   Widget build(BuildContext context) {
+
     return  Scaffold(
-      appBar:AppBar(
-        backgroundColor: Colors.black.withOpacity(0.0),
-        elevation: 0,
-        title: Padding(
-          
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text('Notes'),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16.0),
-            child: Container(
 
-              decoration: BoxDecoration(
-
-              color: Colors.white.withOpacity(0.05),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  // do something when the search icon is pressed
-                },
-              ),
-            ),
-          ),
-        ],
-      ),
       floatingActionButton: FloatingActionButton(onPressed: (){
         showModalBottomSheet(
+          backgroundColor: kPrimaryWallpaperColor,
+          isScrollControlled: true,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),

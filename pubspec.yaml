@@ -38,7 +38,11 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   hive_generator: ^2.0.0
-
+  bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
+  modal_progress_hud_nsn: ^0.4.0
+  intl: ^0.17.0
+  get: ^4.6.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -56,6 +60,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/images/
   fonts:
     - family: Poppins
       fonts:
